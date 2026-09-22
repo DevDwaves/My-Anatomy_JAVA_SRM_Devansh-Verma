@@ -167,51 +167,11 @@ The application contains:
 - DIV button
 - EXIT button
 
-### Screenshot 1: VS Code Project and Terminal
 
-Attach the screenshot showing the project structure and successful execution commands.
 
-```text
-[Attach Screenshot Here]
-```
 
-Suggested image name:
 
-```text
-screenshots/vscode-terminal.png
-```
-
-### Screenshot 2: Calculator GUI
-
-Attach the screenshot of the calculator window after it opens.
-
-```text
-[Attach Screenshot Here]
-```
-
-Suggested image name:
-
-```text
-screenshots/calculator-gui.png
-```
-
-### Screenshot 3: Calculation Result
-
-Attach a screenshot showing an operation and its result, such as addition or multiplication.
-
-```text
-[Attach Screenshot Here]
-```
-
-Suggested image name:
-
-```text
-screenshots/calculation-result.png
-```
-
----
-
-## 8. Working Principle
+## 7. Working Principle
 
 1. The user enters the first number.
 2. The user enters the second number.
@@ -224,7 +184,7 @@ screenshots/calculation-result.png
 
 ---
 
-## 9. Conclusion
+## 8. Conclusion
 
 The Java Swing calculator was successfully compiled and executed in Visual Studio Code using Java commands. The project demonstrates the use of Java GUI components, event handling, user input, arithmetic operations, and basic exception handling.
 ![alt text](<Screenshot 2026-09-22 215128.png>)

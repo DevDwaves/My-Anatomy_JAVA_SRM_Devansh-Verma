@@ -151,45 +151,6 @@ After running the command, the calculator GUI should open.
 
 ---
 
-## Screenshots
-
-Add screenshots of the execution process and application output in the relevant project folders.
-
-### First App
-
-#### Project Structure and Terminal
-
-```text
-[Add Screenshot Here]
-```
-
-#### Hello World Output
-
-```text
-[Add Screenshot Here]
-```
-
-### Calculator
-
-#### Project Structure and Compilation
-
-```text
-[Add Screenshot Here]
-```
-
-#### Calculator GUI
-
-```text
-[Add Screenshot Here]
-```
-
-#### Calculation Result
-
-```text
-[Add Screenshot Here]
-```
-
----
 
 ## Requirements
 

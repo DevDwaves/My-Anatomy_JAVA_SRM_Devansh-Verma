@@ -154,59 +154,10 @@ java -cp target\classes com.example.myapp.App
 
 ---
 
-## 7. Screenshots
-
-Screenshots can be attached below to document the execution process.
-
-### Screenshot 1: Project Structure in VS Code
-
-Attach a screenshot showing the `first-app` project structure, including `src`, `target`, and `pom.xml`.
-
-```text
-[Attach Screenshot Here]
-```
-
-Suggested file name:
-
-```text
-screenshots/project-structure.png
-```
-
-### Screenshot 2: Compilation Command
-
-Attach a screenshot showing the successful compilation command in the VS Code terminal.
-
-```text
-[Attach Screenshot Here]
-```
-
-Suggested file name:
-
-```text
-screenshots/compilation-command.png
-```
-
-### Screenshot 3: Program Execution
-
-Attach a screenshot showing the execution command and the output:
-
-```text
-Hello World!
-```
-
-```text
-[Attach Screenshot Here]
-```
-
-Suggested file name:
-
-```text
-screenshots/hello-world-output.png
-```
 
 ---
 
-## 8. Working Principle
+## 7. Working Principle
 
 1. The Java source file `App.java` contains the main method.
 2. The `javac` command compiles the source code into bytecode.
@@ -216,7 +167,7 @@ screenshots/hello-world-output.png
 
 ---
 
-## 9. Result
+## 8. Result
 
 The First App Java project was successfully compiled and executed in Visual Studio Code using the Java compiler and Java runtime commands. The program displayed the expected output:
 
@@ -226,7 +177,7 @@ Hello World!
 
 ---
 
-## 10. Conclusion
+## 9. Conclusion
 
 This project demonstrates the basic process of compiling and running a Java application in Visual Studio Code. It also provides an introduction to Java package structure, Maven project organization, terminal commands, and standard output.
 
