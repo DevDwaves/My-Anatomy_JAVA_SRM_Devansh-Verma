@@ -1,63 +1,67 @@
 # Java Practical Projects
 
-A collection of beginner-friendly Java projects developed and executed using **Visual Studio Code**. This repository contains two practical applications that demonstrate basic Java programming, project structure, compilation, and execution.
+A collection of Java practical projects developed and executed using **Visual Studio Code**. The repository includes basic Java programming, Java Swing GUI development, inventory management, and multithreaded CSV processing.
 
 ## Projects Included
 
-| Project | Description | Application Type |
-|---|---|---|
-| `first-app` | A basic Java program that prints `Hello World!` | Console Application |
-| `calculator-executable-jar` | A simple calculator supporting basic arithmetic operations | Java Swing GUI Application |
+| Module | Project | Description | Type |
+|---|---|---|---|
+| Module 1 | `first-app` | Prints `Hello World!` | Console Application |
+| Module 1 | `Inventory Management System` | Manages products, categories, stock, and low-stock reports | Console Application |
+| Module 2 | `calculator-executable-jar` | Performs basic arithmetic operations using a graphical interface | Java Swing GUI |
+| Module 2 | `MultiThreadedFileProcessor` | Processes CSV sales files concurrently and generates a report | Multithreaded Console Application |
 
 ---
 
 ## Technologies Used
 
-- **Programming Language:** Java
-- **JDK Version Used:** Java 25
+- **Language:** Java
+- **JDK:** Java 25
 - **IDE:** Visual Studio Code
-- **GUI Framework:** Java Swing
-- **Project Configuration:** Maven structure
+- **GUI:** Java Swing
+- **Concurrency:** `ExecutorService` and Thread Pool
+- **File Handling:** Java File I/O
+- **Data Storage:** Java Serialization
 - **Terminal:** PowerShell
 
-> **Note:** The projects were compiled and executed directly using `javac` and `java`. Maven was not used for execution because Maven was not configured in the system PATH.
+> **Note:** The projects can be compiled and executed directly using `javac` and `java`. Maven commands are not required for the direct execution method.
 
 ---
 
 ## Repository Structure
 
 ```text
-Java-Practical-Projects/
+Maven Project/
 │
-├── first-app/
-│   ├── src/
-│   │   ├── main/
-│   │   │   └── java/
-│   │   │       └── com/
-│   │   │           └── example/
-│   │   │               └── myapp/
-│   │   │                   └── App.java
-│   │   ├── test/
-│   │   └── ...
-│   ├── target/
-│   ├── pom.xml
-│   └── README.md
+├── README.md
 │
-├── calculator-executable-jar/
-│   ├── src/
-│   │   ├── main/
-│   │   │   └── java/
-│   │   │       └── com/
-│   │   │           └── example/
-│   │   │               └── myapp/
-│   │   │                   └── App.java
-│   │   ├── test/
-│   │   └── ...
-│   ├── target/
-│   ├── pom.xml
-│   └── README.md
+├── Module 1/
+│   ├── first-app/
+│   │   ├── src/
+│   │   ├── target/
+│   │   └── pom.xml
+│   │
+│   └── Inventory Management System/
+│       ├── Main.java
+│       ├── InventoryManager.java
+│       ├── Product.java
+│       ├── Category.java
+│       ├── FileManager.java
+│       ├── products.dat
+│       └── categories.dat
 │
-└── README.md
+└── Module 2/
+    ├── calculator-executable-jar/
+    │   ├── src/
+    │   ├── target/
+    │   └── pom.xml
+    │
+    └── MultiThreadedFileProcessor/
+        ├── data/
+        ├── src/
+        ├── out/
+        ├── report.txt
+        └── run.bat
 ```
 
 ---
@@ -66,25 +70,23 @@ Java-Practical-Projects/
 
 ## Overview
 
-The `first-app` project is a simple Java console application that prints:
+A basic Java console application that prints:
 
 ```text
 Hello World!
 ```
 
-It is designed to demonstrate the basic process of compiling and executing a Java program.
+## Execution
 
-## Execution Steps
+Open the `first-app` folder in VS Code and run the following commands from its project root.
 
-Open the `first-app` folder in Visual Studio Code and open the integrated terminal.
-
-### Compile the Program
+### Compile
 
 ```powershell
 javac -d target\classes src\main\java\com\example\myapp\App.java
 ```
 
-### Run the Program
+### Run
 
 ```powershell
 java -cp target\classes com.example.myapp.App
@@ -96,21 +98,60 @@ java -cp target\classes com.example.myapp.App
 Hello World!
 ```
 
-## Command Explanation
-
-- `javac`: Compiles the Java source code.
-- `-d target\classes`: Stores compiled class files in the specified directory.
-- `java`: Runs the compiled Java program.
-- `-cp target\classes`: Sets the classpath.
-- `com.example.myapp.App`: Specifies the fully qualified main class.
-
 ---
 
-# 2. Calculator Project
+# 2. Inventory Management System
 
 ## Overview
 
-The `calculator-executable-jar` project is a desktop calculator application developed using **Java Swing**. It provides a graphical user interface for performing basic arithmetic operations.
+A menu-driven Java console application for managing products, categories, stock quantities, and low-stock reports.
+
+## Features
+
+- Add, view, search, update, and delete products
+- Add, view, update, and delete categories
+- Add and remove stock
+- Display low-stock products
+- Validate user input
+- Store data using Java serialization
+
+## Main Files
+
+| File | Purpose |
+|---|---|
+| `Main.java` | Main method and menu flow |
+| `InventoryManager.java` | Inventory operations |
+| `Product.java` | Product details |
+| `Category.java` | Category details |
+| `FileManager.java` | Saving and loading data |
+
+## Execution
+
+Open the `Inventory Management System` folder in VS Code.
+
+### Compile
+
+```powershell
+javac -d out *.java
+```
+
+### Run
+
+```powershell
+java -cp out Main
+```
+
+The inventory menu will appear in the terminal.
+
+> Run the application from the project folder so the relative paths for `products.dat` and `categories.dat` work correctly.
+
+---
+
+# 3. Calculator Project
+
+## Overview
+
+A Java Swing desktop calculator application that provides a graphical interface for performing basic arithmetic operations.
 
 ## Features
 
@@ -119,56 +160,106 @@ The `calculator-executable-jar` project is a desktop calculator application deve
 - Multiplication
 - Division
 - Result display
-- Exit button
+- Exit option
 - Invalid input handling
-- Division-by-zero error handling
+- Division-by-zero handling
 
-## Execution Steps
+## Execution
 
-Open the `calculator-executable-jar` folder in Visual Studio Code.
+Open the `calculator-executable-jar` folder in VS Code.
 
-### Compile the Program
+### Compile
 
 ```powershell
 javac -d target\classes src\main\java\com\example\myapp\App.java
 ```
 
-### Run the Calculator
+### Run
 
 ```powershell
 java -cp target\classes com.example.myapp.App
 ```
 
-After running the command, the calculator GUI should open.
-
-## Command Explanation
-
-- `javac`: Compiles the Java source file.
-- `-d target\classes`: Saves the compiled `.class` files in the target directory.
-- `java`: Starts the compiled Java application.
-- `-cp target\classes`: Provides the location of the compiled classes.
-- `com.example.myapp.App`: Identifies the main application class.
+The calculator GUI should open after execution.
 
 ---
 
+# 4. Multi-Threaded CSV File Processor
+
+## Overview
+
+A Java application that processes multiple CSV sales files concurrently using a thread pool and generates a consolidated sales report.
+
+## Features
+
+- Reads CSV files from the `data` folder
+- Processes files concurrently
+- Uses `ExecutorService`
+- Creates processing tasks for CSV files
+- Aggregates processing results
+- Generates `report.txt`
+
+## Main Components
+
+| Component | Purpose |
+|---|---|
+| `Main.java` | Application entry point |
+| `ProcessorConfig.java` | Processor configuration |
+| `SalesRecord.java` | Sales data model |
+| `CsvFileProcessor.java` | CSV file processing |
+| `ReportAggregator.java` | Result aggregation and report generation |
+
+## Execution Method 1: Using run.bat
+
+Open the terminal inside the `MultiThreadedFileProcessor` folder:
+
+```powershell
+.\run.bat
+```
+
+## Execution Method 2: Manual Compilation
+
+### Compile
+
+Run this command from the project root:
+
+```powershell
+javac -d out src\Main.java src\model\SalesRecord.java src\config\ProcessorConfig.java src\processor\CsvFileProcessor.java src\report\ReportAggregator.java
+```
+
+### Run
+
+```powershell
+java -cp out Main
+```
+
+### Output
+
+The application generates:
+
+```text
+report.txt
+```
+
+The report contains the consolidated results of the processed sales data.
+
+---
 
 ## Requirements
 
-Before running the projects, install:
+Install the following software:
 
 1. Java Development Kit (JDK)
 2. Visual Studio Code
 3. Java Extension Pack for Visual Studio Code (recommended)
 
-### Verify Java Installation
-
-Run:
+### Check Java Installation
 
 ```powershell
 java -version
 ```
 
-Verify the Java compiler:
+### Check Java Compiler
 
 ```powershell
 javac -version
@@ -178,34 +269,35 @@ javac -version
 
 ## General Execution Workflow
 
-The common workflow for both projects is:
-
 ```text
-Open Project
-     |
-     v
-Open VS Code Terminal
-     |
-     v
-Compile App.java using javac
-     |
-     v
+Open the Required Project
+          |
+          v
+Open the VS Code Terminal
+          |
+          v
+Move to the Project Root
+          |
+          v
+Compile Java Files using javac
+          |
+          v
 Generate .class Files
-     |
-     v
-Run Main Class using java
-     |
-     v
-View Program Output
+          |
+          v
+Run the Main Class using java
+          |
+          v
+View the Output or Generated Report
 ```
 
 ---
 
 ## Troubleshooting
 
-### Java Is Not Recognized
+### Java or javac Is Not Recognized
 
-Check whether the JDK is installed:
+Run:
 
 ```powershell
 java -version
@@ -216,23 +308,43 @@ If either command fails, install the JDK and configure the Java PATH environment
 
 ### Maven Is Not Recognized
 
-If you see an error stating that `mvn` is not recognized, Maven is either not installed or not added to the system PATH.
+If `mvn` is not recognized, Maven is either not installed or not configured in the system PATH.
 
-The projects can still be compiled and executed directly using:
+The projects can still be executed directly using:
 
 ```powershell
 javac
 java
 ```
 
-### Calculator GUI Does Not Open
+### File Not Found During Compilation
+
+Make sure the command matches your current directory:
+
+- From the project root, use paths beginning with `src\`.
+- If you are already inside the `src` folder, do not add another `src\` prefix.
+
+### Main Class Not Found
 
 Check that:
 
-- The compilation command completed without errors.
-- The correct project directory is open.
-- The fully qualified class name is correct.
-- The Java application is not being terminated immediately.
+- Compilation completed without errors.
+- The classpath points to the correct output folder.
+- The correct main class is used.
+- Package names match the execution command where applicable.
+
+### Inventory Data File Error
+
+Run the Inventory Management System from its own project folder because it uses relative data-file paths.
+
+### CSV Report Not Generated
+
+Check that:
+
+- CSV files are available in the expected `data` folder.
+- Compilation completed successfully.
+- The program is run from the project root.
+- The application has permission to create `report.txt`.
 
 ---
 
@@ -240,23 +352,26 @@ Check that:
 
 These projects demonstrate:
 
-- Java source-code compilation
-- Java bytecode execution
-- Package and folder structure
-- Main class execution
-- Command-line execution
+- Java compilation and bytecode execution
+- Java package and folder structure
+- Object-oriented programming
 - Java Swing GUI development
-- Basic arithmetic operations
-- Basic input validation and error handling
-- Working with Java projects in Visual Studio Code
+- CRUD operations
+- File handling and serialization
+- CSV processing
+- Multithreading with `ExecutorService`
+- Thread pool execution
+- Report generation
+- Input validation and exception handling
+- Running Java applications in Visual Studio Code
 
 ---
 
 ## Conclusion
 
-This repository contains two Java practical projects: a basic `Hello World` console application and a graphical calculator application. Both projects were compiled and executed in Visual Studio Code using Java's `javac` compiler and `java` runtime commands.
+This repository contains Java practical projects covering console applications, GUI development, inventory management, file handling, and multithreaded CSV processing.
 
-The repository provides a simple reference for understanding Java project organization, compilation, execution, and basic GUI application development.
+The projects provide practical experience with Java programming, compilation, execution, object-oriented design, serialization, concurrency, and report generation.
 
 ---
 
@@ -264,5 +379,6 @@ The repository provides a simple reference for understanding Java project organi
 
 **Devansh Verma**
 
-B.Tech – Computer Science and Engineering  
+B.Tech – Computer Science and Engineering
+
 SRM Institute of Science and Technology

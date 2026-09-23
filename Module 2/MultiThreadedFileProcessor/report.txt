@@ -1,0 +1,32 @@
+
+=======================================================
+       SALES AGGREGATED REPORT
+=======================================================
+
+  Total Records Processed : 25
+  Total Quantity Sold     : 915 units
+  Total Revenue           : $57,650.85
+  Average Revenue/Record  : $2,306.03
+
+  Top-Selling Product     : Socks
+  Top Revenue Category    : Electronics
+
+=======================================================
+  REVENUE BY CATEGORY:
+=======================================================
+  Clothing             : $    6,446.35
+  Electronics          : $   37,347.60
+  Footwear             : $    6,159.19
+  Home & Kitchen       : $    4,549.06
+  Sports               : $    3,148.65
+
+=======================================================
+  QUANTITY SOLD BY CATEGORY:
+=======================================================
+  Clothing             :      365 units
+  Electronics          :      240 units
+  Footwear             :       81 units
+  Home & Kitchen       :       94 units
+  Sports               :      135 units
+
+=======================================================
