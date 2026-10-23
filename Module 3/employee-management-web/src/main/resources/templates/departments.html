@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Departments</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>Employee Management</h2>
+
+    <div>
+
+        <a href="/dashboard">
+            Dashboard
+        </a>
+
+        <a href="/employees">
+            Employees
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+<div class="container">
+
+    <h1>Departments</h1>
+
+    <div th:if="${role == 'HR'}">
+
+        <form action="/departments/save" method="post" class="inline-form">
+
+            <input type="text"
+                   name="name"
+                   placeholder="Department name"
+                   required>
+
+            <button type="submit">
+                Add Department
+            </button>
+
+        </form>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Department Name</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr th:each="department : ${departments}">
+
+            <td th:text="${department.id}">
+                1
+            </td>
+
+            <td th:text="${department.name}">
+                IT
+            </td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>

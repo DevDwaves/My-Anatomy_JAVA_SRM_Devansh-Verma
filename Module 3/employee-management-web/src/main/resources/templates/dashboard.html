@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>Employee Management</h2>
+
+    <div>
+
+        <span>
+            Welcome,
+            <strong th:text="${username}"></strong>
+        </span>
+
+        <span class="role"
+              th:text="${role}">
+        </span>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+<div class="container">
+
+    <h1>Dashboard</h1>
+
+    <div class="cards">
+
+        <a href="/employees"
+           class="card">
+
+            <h2>Employees</h2>
+
+            <p>
+                Manage employee records
+            </p>
+
+        </a>
+
+        <a href="/departments"
+           class="card">
+
+            <h2>Departments</h2>
+
+            <p>
+                View departments
+            </p>
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

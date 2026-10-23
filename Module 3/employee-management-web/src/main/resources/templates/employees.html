@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Employees</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>Employee Management</h2>
+
+    <div>
+
+        <a href="/dashboard">
+            Dashboard
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+<div class="container">
+
+    <div class="page-header">
+
+        <h1>Employees</h1>
+
+        <a th:if="${role == 'HR'}"
+           href="/employees/new"
+           class="button">
+
+            Add Employee
+
+        </a>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>
+                <a th:href="@{/employees(
+                    page=0,
+                    size=5,
+                    sortBy='name',
+                    direction='asc'
+                )}">
+                    Name
+                </a>
+            </th>
+
+            <th>Email</th>
+
+            <th>Salary</th>
+
+            <th>Department</th>
+
+            <th>Actions</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr th:each="employee : ${employees}">
+
+            <td th:text="${employee.id}">
+                1
+            </td>
+
+            <td th:text="${employee.name}">
+                Ravi
+            </td>
+
+            <td th:text="${employee.email}">
+                ravi@example.com
+            </td>
+
+            <td th:text="${employee.salary}">
+                50000
+            </td>
+
+            <td th:text="${employee.department.name}">
+                IT
+            </td>
+
+            <td>
+
+                <a
+                    th:if="${role == 'HR' or role == 'MANAGER'}"
+                    th:href="@{/employees/edit/{id}(id=${employee.id})}"
+                    class="edit">
+
+                    Edit
+
+                </a>
+
+                <a
+                    th:if="${role == 'HR'}"
+                    th:href="@{/employees/delete/{id}(id=${employee.id})}"
+                    class="delete"
+                    onclick="return confirm('Delete this employee?')">
+
+                    Delete
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+    <div class="sorting">
+
+        <strong>Sort:</strong>
+
+        <a th:href="@{/employees(
+            page=0,
+            size=5,
+            sortBy='name',
+            direction='asc'
+        )}">
+            Name ↑
+        </a>
+
+        <a th:href="@{/employees(
+            page=0,
+            size=5,
+            sortBy='name',
+            direction='desc'
+        )}">
+            Name ↓
+        </a>
+
+        <a th:href="@{/employees(
+            page=0,
+            size=5,
+            sortBy='salary',
+            direction='asc'
+        )}">
+            Salary ↑
+        </a>
+
+        <a th:href="@{/employees(
+            page=0,
+            size=5,
+            sortBy='salary',
+            direction='desc'
+        )}">
+            Salary ↓
+        </a>
+
+    </div>
+
+    <div class="pagination">
+
+        <a th:if="${currentPage > 0}"
+           th:href="@{/employees(
+               page=${currentPage - 1},
+               size=5,
+               sortBy=${sortBy},
+               direction=${direction}
+           )}">
+            Previous
+        </a>
+
+        <span>
+
+            Page
+            <span th:text="${currentPage + 1}">
+                1
+            </span>
+
+            of
+
+            <span th:text="${totalPages}">
+                1
+            </span>
+
+        </span>
+
+        <a th:if="${currentPage + 1 < totalPages}"
+           th:href="@{/employees(
+               page=${currentPage + 1},
+               size=5,
+               sortBy=${sortBy},
+               direction=${direction}
+           )}">
+            Next
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

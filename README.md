@@ -10,6 +10,7 @@ A collection of Java practical projects developed and executed using **Visual St
 | Module 1 | `Inventory Management System` | Manages products, categories, stock, and low-stock reports | Console Application |
 | Module 2 | `calculator-executable-jar` | Performs basic arithmetic operations using a graphical interface | Java Swing GUI |
 | Module 2 | `MultiThreadedFileProcessor` | Processes CSV sales files concurrently and generates a report | Multithreaded Console Application |
+| Module 3 | `employee-management-web` | Web-based employee and department management with role-based access | Spring Boot Web Application |
 
 ---
 
@@ -50,18 +51,34 @@ Maven Project/
 │       ├── products.dat
 │       └── categories.dat
 │
-└── Module 2/
-    ├── calculator-executable-jar/
+├── Module 2/
+│   ├── calculator-executable-jar/
+│   │   ├── src/
+│   │   ├── target/
+│   │   └── pom.xml
+│   │
+│   └── MultiThreadedFileProcessor/
+│       ├── data/
+│       ├── src/
+│       ├── out/
+│       ├── report.txt
+│       └── run.bat
+│
+└── Module 3/
+    ├── employee-management-web/
+    │   ├── .mvn/
+    │   │   └── wrapper/
     │   ├── src/
-    │   ├── target/
+    │   ├── target/                 # Generated build output
+    │   ├── .gitattributes
+    │   ├── .gitignore
+    │   ├── mvnw                    # Maven Wrapper for Linux/macOS
+    │   ├── mvnw.cmd                # Maven Wrapper for Windows
     │   └── pom.xml
     │
-    └── MultiThreadedFileProcessor/
-        ├── data/
-        ├── src/
-        ├── out/
-        ├── report.txt
-        └── run.bat
+    ├── request-mapping-controller/ # Request-mapping practical project
+    ├── README.md                   # Module 3 documentation
+    └── Screenshot *.png            # Module 3 execution screenshots
 ```
 
 ---
@@ -271,23 +288,23 @@ javac -version
 
 ```text
 Open the Required Project
-          |
-          v
+         |
+         v
 Open the VS Code Terminal
-          |
-          v
+         |
+         v
 Move to the Project Root
-          |
-          v
+         |
+         v
 Compile Java Files using javac
-          |
-          v
+         |
+         v
 Generate .class Files
-          |
-          v
+         |
+         v
 Run the Main Class using java
-          |
-          v
+         |
+         v
 View the Output or Generated Report
 ```
 
@@ -382,3 +399,165 @@ The projects provide practical experience with Java programming, compilation, ex
 B.Tech – Computer Science and Engineering
 
 SRM Institute of Science and Technology
+
+---
+
+# 5. Module 3 — Employee Management Web Application
+
+> This section is an addition to the original README. The Module 1 and Module 2 project descriptions above are retained.
+
+## Overview
+
+A Java-based web application for managing employees and departments. It uses Spring Boot and Thymeleaf to render browser pages and Spring Security to configure login and role-based access.
+
+## Features
+
+- Login with HR, Manager, and Employee demo roles
+- Dashboard navigation
+- View and browse employees
+- Sort and paginate employee records
+- Create employee records (HR role)
+- Edit employee records (HR and Manager roles)
+- Delete employee records (HR role)
+- View departments and add departments (HR role)
+- JWT creation and parsing using the JJWT library
+- Responsive styling through a shared CSS stylesheet
+
+## Technology Stack
+
+| Technology | Usage |
+|---|---|
+| Java 22 | Programming language configured in `pom.xml` |
+| Spring Boot 4.1.1 | Application framework |
+| Spring MVC / WebMVC | Web controllers and routes |
+| Thymeleaf | Server-rendered HTML templates |
+| Spring Security | Authentication and authorization configuration |
+| JJWT 0.12.6 | JSON Web Token support |
+| Maven Wrapper | Build and run without a separate Maven installation |
+| HTML and CSS | Web interface |
+
+## Module 3 Project Structure
+
+```text
+Module 3/
+├── employee-management-web/
+│   ├── .mvn/
+│   │   └── wrapper/                   # Maven Wrapper configuration
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/example/
+│   │   │   │   ├── config/            # Security configuration
+│   │   │   │   ├── controller/        # Login, dashboard, employee, department routes
+│   │   │   │   ├── model/             # Employee, Department, Role models
+│   │   │   │   ├── security/          # JWT service
+│   │   │   │   ├── service/           # Employee and department operations
+│   │   │   │   └── EmployeeManagementWebApplication.java
+│   │   │   └── resources/
+│   │   │       ├── static/CSS/        # Application stylesheet
+│   │   │       ├── templates/         # Thymeleaf HTML pages
+│   │   │       └── application.properties
+│   │   └── test/                      # Application test source
+│   ├── target/                        # Generated build output
+│   ├── .gitattributes
+│   ├── .gitignore
+│   ├── mvnw                           # Wrapper for Linux/macOS
+│   ├── mvnw.cmd                       # Wrapper for Windows
+│   └── pom.xml
+├── request-mapping-controller/        # Separate request-mapping practical
+├── README.md                          # Module 3 documentation
+└── Screenshot *.png                  # Screenshots captured during execution
+```
+
+## Requirements
+
+- JDK 22, matching the version configured in `pom.xml`
+- Visual Studio Code or another Java IDE
+- Internet connection for the first build, so Maven can download the required distribution and dependencies
+
+Confirm Java is installed:
+
+```powershell
+java -version
+javac -version
+```
+
+## Run Module 3 in VS Code
+
+Open the `employee-management-web` folder in VS Code. Make sure the terminal is in the directory containing `pom.xml` and `mvnw.cmd`.
+
+### Windows PowerShell
+
+**1. Check the Maven Wrapper:**
+
+```powershell
+.\mvnw.cmd -version
+```
+
+**2. Build the project:**
+
+```powershell
+.\mvnw.cmd clean package
+```
+
+**3. Start the application:**
+
+```powershell
+.\mvnw.cmd spring-boot:run
+```
+
+Keep the terminal open while the application runs. Then open:
+
+- Home page: <http://localhost:8080/>
+- Login page: <http://localhost:8080/login>
+- Dashboard after login: <http://localhost:8080/dashboard>
+
+### Linux or macOS
+
+```bash
+chmod +x mvnw
+./mvnw -version
+./mvnw clean package
+./mvnw spring-boot:run
+```
+
+Then visit <http://localhost:8080/login>.
+
+## Demo Login Credentials
+
+| Role | Username | Password |
+|---|---|---|
+| HR | `hr` | `1234` |
+| Manager | `manager` | `1234` |
+| Employee | `employee` | `1234` |
+
+These credentials are hardcoded for demonstration and local learning only. Do not use them for a public or production deployment.
+
+## Application Pages
+
+| Page | URL | Purpose |
+|---|---|---|
+| Login | `/login` | Sign in with a demo account |
+| Dashboard | `/dashboard` | View the dashboard and navigate the application |
+| Employees | `/employees` | Browse, sort, and paginate employee records |
+| New employee | `/employees/new` | Create an employee (HR only) |
+| Edit employee | `/employees/edit/{id}` | Update an employee (HR or Manager) |
+| Departments | `/departments` | View departments and add a department (HR only) |
+| Logout | `/logout` | End the current session |
+
+## If Port 8080 Is Already in Use
+
+If Spring Boot reports `Web server failed to start. Port 8080 was already in use.`, run the app on port `8081` instead. No source-code changes are required.
+
+**Windows PowerShell:**
+
+```powershell
+.\mvnw.cmd spring-boot:run "-Dspring-boot.run.arguments=--server.port=8081"
+```
+
+**Linux/macOS:**
+
+```bash
+./mvnw spring-boot:run -Dspring-boot.run.arguments=--server.port=8081
+```
+
+Open <http://localhost:8081/login> after startup.

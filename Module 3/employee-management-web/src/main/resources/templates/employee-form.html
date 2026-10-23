@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Employee Form</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>Employee Management</h2>
+
+    <a href="/employees">
+        Back
+    </a>
+
+</nav>
+
+<div class="form-container">
+
+    <h1>Employee</h1>
+
+    <form
+        th:action="${employee.id == null}
+            ? '/employees/save'
+            : '/employees/update/' + ${employee.id}"
+        method="post">
+
+        <label>Name</label>
+
+        <input type="text"
+               name="name"
+               th:value="${employee.name}"
+               required>
+
+        <label>Email</label>
+
+        <input type="email"
+               name="email"
+               th:value="${employee.email}"
+               required>
+
+        <label>Salary</label>
+
+        <input type="number"
+               name="salary"
+               step="0.01"
+               th:value="${employee.salary}"
+               required>
+
+        <label>Department</label>
+
+        <select name="departmentId"
+                required>
+
+            <option value="">
+                Select Department
+            </option>
+
+            <option
+                th:each="department : ${departments}"
+                th:value="${department.id}"
+                th:text="${department.name}"
+                th:selected="${employee.department != null
+                    and employee.department.id == department.id}">
+
+                IT
+
+            </option>
+
+        </select>
+
+        <button type="submit">
+
+            Save Employee
+
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

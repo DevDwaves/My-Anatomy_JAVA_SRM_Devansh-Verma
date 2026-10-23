@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Employee Management - Login</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="login-box">
+
+        <h1>Employee Management</h1>
+
+        <p>Login to continue</p>
+
+        <div class="error"
+             th:if="${error}"
+             th:text="${error}">
+        </div>
+
+        <form action="/login" method="post">
+
+            <label>Username</label>
+
+            <input type="text"
+                   name="username"
+                   placeholder="Enter username"
+                   required>
+
+            <label>Password</label>
+
+            <input type="password"
+                   name="password"
+                   placeholder="Enter password"
+                   required>
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <div class="demo-users">
+
+            <h3>Demo Users</h3>
+
+            <p>HR: hr / 1234</p>
+
+            <p>Manager: manager / 1234</p>
+
+            <p>Employee: employee / 1234</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
